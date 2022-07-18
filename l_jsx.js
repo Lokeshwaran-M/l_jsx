@@ -1,5 +1,5 @@
 (function (root, fun) {
-  root["l_jsx"] = fun();
+  root.l_jsx = fun();
 })(window, function () {
   var documentObj = {
     tag: null,
@@ -24,29 +24,7 @@
     },
   };
 
-  create = function (obj) {
-    if (obj.tag) {
-      documentObj.tag = obj.tag;
-      console.log(documentObj.tag);
-    }
-    if (obj.content) {
-      documentObj.content = obj.content;
-      console.log(documentObj.content);
-    }
-    if (obj.attribute) {
-      documentObj.attribute = obj.attribute;
-      console.log(documentObj.attribute);
-    } else {
-      documentObj.attribute = null;
-    }
-    if (obj.child) {
-      documentObj.child = obj.child;
-      console.log(documentObj.child);
-    } 
-    return documentObj;
-  };
-
-  l_jsx = function (obj) {
+  var l_jsx = function (obj) {
     if (obj.tag) {
       var l_jsxObj = document.createElement(obj.tag);
     }
@@ -70,20 +48,34 @@
     }
     if (obj.child) {
       for (var i = 0; i < obj.child.length; i++) {
-        if (window.l_jsx.l_jsx(obj.child[i])) {
-          l_jsxObj.appendChild(window.l_jsx.l_jsx(obj.child[i]));
+        if (l_jsx(obj.child[i])) {
+          l_jsxObj.appendChild(l_jsx(obj.child[i]));
         }
       }
     }
     return l_jsxObj;
   };
-  getDOM = function (obj) {
-    window.l_jsx.l_jsx(obj);
+  l_jsx.create = function (obj) {
+    if (obj.tag) {
+      documentObj.tag = obj.tag;
+      console.log(documentObj.tag);
+    }
+    if (obj.content) {
+      documentObj.content = obj.content;
+      console.log(documentObj.content);
+    }
+    if (obj.attribute) {
+      documentObj.attribute = obj.attribute;
+      console.log(documentObj.attribute);
+    } else {
+      documentObj.attribute = null;
+    }
+    if (obj.child) {
+      documentObj.child = obj.child;
+      console.log(documentObj.child);
+    }
+    return documentObj;
   };
 
-  return {
-    create: create,
-    l_jsx: l_jsx,
-    getDOM: getDOM,
-  };
+  return l_jsx;
 });

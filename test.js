@@ -10,6 +10,5 @@ var myObj = l_jsx.create({
   }
 
   myObj.addChild(mycobj)
-  var nodedom = l_jsx.l_jsx(myObj)
+  var nodedom = l_jsx(myObj)
   console.log(nodedom)
-  l_jsx.getDOM(myObj)
