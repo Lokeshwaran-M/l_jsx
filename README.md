@@ -1,6 +1,6 @@
-# lx
+# l_jsx (lx)
 
-lx is a basic formate of jsx which helps in building html code snippets from javascript object models
+l_jsx alis lx is javascript processor that converts javascript object models to html code snippets 
 
 ## lx methods :
 
