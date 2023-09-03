@@ -104,7 +104,7 @@ var footer = {
     },
   ],
 };
-var appBody = l_jsx.create({
+var appBody = lx.create({
   tag: "div",
 });
 appBody.addChild(nav);
@@ -112,5 +112,5 @@ appBody.addChild(main);
 appBody.addChild(box);
 appBody.addChild(footer);
 
-var app = l_jsx(appBody);
+var app = lx(appBody);
 console.log(app);

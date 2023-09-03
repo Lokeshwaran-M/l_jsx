@@ -1,14 +1,16 @@
-var myObj = l_jsx.create({
-    tag: "div",
-    attribute: [{ class: "app" },{id : "aid"}],
-    child: null,
-  });
-  myObj.set("class","main");
-  var mycobj = {
-    tag:"p",
-    content:"hi this is l_jsx"
-  }
+var myObj = lx.create({
+  tag: "div",
+  attribute: [{ class: "app" }, { id: "aid" }],
+  child: null,
+});
+myObj.set("class", "main");
+var mycobj = {
+  tag: "p",
+  content: "hi this is lx",
+};
 
-  myObj.addChild(mycobj)
-  var nodedom = l_jsx(myObj)
-  console.log(nodedom)
+myObj.addChild(mycobj);
+var nodedom = lx(myObj);
+console.log(nodedom);
+
+
